@@ -21,29 +21,95 @@
 
 아래는 각 레이어의 클래스가 직접적으로 의존 관계에 있는 설계와 각 레이어가 역전된 의존 관계를 가진 설계를 나타낸 것 이다.
 
-```uml
-@startuml
-class PolicyLayer{}
-class MechanismLayer{}
-class UtilityLayer{}
+- 직접적인 의존관계에 있는 설계
 
-PolicyLayer ..> MechanismLayer
-MechanismLayer ..>UtilityLayer
-@enduml
+![NoAbstract](./img/layer_non_abstract.png)
+
+- 역전된 의존관계를 가진 설계
+
+![Abstact](./img/layer_abstract.png)
+
+# 추상화 의존
+
+"추상화에 의존하자" 라는 경험적 접근방식에 따라 다음과 같은 규칙을 만들 수 있다.
+
+- 어떤 변수도 구체적인 클래스에 대한 포인터나 참조값을 가져서는 안 된다.
+- 어떤 클래스도 구체적인 클래스에서 파생 되어서는 안 된다.
+- 어떤 메소드도 그 기반 클래스에서 구현된 메소드를 오버라이드 해서는 안 된다.
+
+위 규칙을 무조건 지킬 수는 없다. 한 번 이상 위반하게 된다. 어느 모듈은 구체적인 클래스의 인스턴스를 만들어야 하고 그런 모듈은 그 구체적인 클래스에 의존관계가 생긴다. 
+
+# 여러가지 예시
+
+## Button 과 Lamp
+
+추상화 하지 않은 코드
+
+![ButtonLamp어설픈추상화](./img/buttonAndLamp_NonAbstract.png)
+
+추상화 된 코드
+
+![ButtonLamp추상화](./img/buttonAndLamp_Abstract.png)
+
+## 용광로 조절기
+
+추상화 하지 않은 코드
+
+![Regulate어설픈추상화](./img/regulate_NonAbstract.png)
+
+추상화 된 코드
+
+![Regulate추상화](./img/regulate_Abstract.png)
+
+
+# 동적 / 정적 다형성
+
+여태까지 Interface나 Abstract class등 동적인 다형성을 이용하여 의존관계를 역전시키는 것을 이야기 하였다. 여기서는 정적인 다형성을 이용하여 똑같이 의존관계를 역전시키는 것을 살펴보려 한다.
+
+인터페이스를 이용한 구현 (동적 다형성)
+
+```csharp
+void Regulate(ITermometer t, IHeater h, double minTemp, double maxTemp){
+	while (true){
+		while (t.read() > minTemp){
+			Thread.Sleep(1000);
+		}
+		h.engage();
+		while (t.read() < maxTemp){
+			Thread.Sleep(1000);
+		}
+		h.outgage();
+	}
 ```
 
-```uml
-@startuml
-class PolicyLayer{}
-class MechanismLayer{}
-class UtilityLayer{}
+제네릭  메서드를 이용한 구현 (정적 다형성)
 
-interface PolicyServiceInterface
-interface MechanismServiceInterface
-
-PolicyLayer -> PolicyServiceInterface
-MechanismLayer ..> PolicyServiceInterface
-MechanismLayer -> MechanismServiceInterface
-UtilityLayer ..> MechanismServiceInterface
-@enduml
+```csharp
+void Regulate<T, H>(T t, H h, double minTemp, double maxTemp){
+	while (true){
+		while (t.read() > minTemp){
+			Thread.Sleep(1000);
+		}
+		h.engage();
+		while (t.read() < maxTemp){
+			Thread.Sleep(1000);
+		}
+		h.outgage();
+	}
 ```
+
+인터페이스를 이용한 것이나 제네릭 메서드를 이용한 것이나 별 반 다르지 않아 보인다. 결국 목적은 의존성의 역전을 이루는 것이고 방법의 문제이기 때문이다.
+
+정적인 메서드를 이용하는 것의 장점은 인터페이스를 상속받거나 선언하지 않아도 된 다는 것이고 의존 관계가 명확하게 끊어진다는 것 이지만 단점은 런타임 시에 형이 바뀔 수 없으며 새로운 종류의 Heater나 Thermometer를 사용하고자 할 때에는 재컴파일 및 재배포가 이루어 져야 한다는 점이다.
+
+# 결론
+
+전통적인 절차 지향 프로그래밍 방식은 아주 구체적인 것에 의존하는 SW를 만들게 된다. 이런 경우 아주 사소한 변경이 의존관계에 속한 많은 모듈을 변경하게 만들 수 있기 때문에 좋지 못 한 설계라고 할 수 있다.
+
+좋은 객체 지향 설계의 증명이 바로 의존성 역전이라고 할 수 있다. 객체 지향 언어로 작성되었든 객체 지향 언어가 아닌 언어로 작성되었든 프로그램의 의존관계가 역전되어 있다면 그것은 객체지향 설계라고 할 수 있다. 반대로 의존관계가 역전되어 있지 않으면 그것은 절차지향적 설계이다.
+
+추상화와 구체적인 사항을 분리하여 유지보수가 쉽도록 할 수 있어야 한다.
+
+---
+
+참고. 로버트C마틴. 클린 소프트웨어 애자일 원칙과 패턴 그리고 실천 방법 (이용원, 김정민, 정지호 옮김)
