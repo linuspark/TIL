@@ -10,7 +10,45 @@
 
 Big O 시간. 알고리즘이 수행되는 시간에 대하여 표기한 것. 자세히 따지면 최대 시간이냐 최소 시간이냐 평균 시간이냐에 따라서 Big-O / Big-theta / Big-Omega 등으로 나뉘어 지기는 하지만 보통은 수행시간을 딱 맞게 하는 시간을 의미한다.
 
-예를 들어 N개의 데이터를 처리하는데 있어서 N개의 데이터를 한번씩 읽어봐야 한다면 O(N) 이라고 표기할 수 있다. 마찬가지로 N개의 데이터를 처리하는데 항상 일정한 시간이 소요된다면 O(1) 이라고 표기한다. 같은 방법으로 O(N), O(log N), O(N log N), O($N^2$), O($2^N$) 등의 표기법이 있다.
+시간 복잡도는 시간과 입력 데이터 개수의 관계를 표현한 것 이다. 예를 들어 N개의 데이터를 처리하는데 있어서 N개의 데이터를 한번씩 읽어 봐야 한다면 O(N) 이라고 표기할 수 있다. 마찬가지로 N개의 데이터를 처리하는데 항상 일정한 시간이 소요된다면 O(1) 이라고 표기한다. 같은 방법으로 O(N), O(log N), O(N log N), O($N^2$), O($2^N$) 등의 표기법이 있다.
+
+## O(1)
+
+```csharp
+public int Algorithm(int[] dataArray){
+	return dataArray[0]
+}
+```
+
+입력으로 받은 데이터의 특정 원소에 직접 접근할 수 있고 입력 데이터의 크기와 함수를 수행하는 시간이 연관이 없는 경우
+
+## O(N)
+
+```csharp
+public int SumOfArray(int[] dataArray){
+	int sum = 0;
+	for(i = 0; i < dataArray.Length; i++){
+		sum += i;
+	}
+	return sum;
+}
+```
+
+입력으로 받는 데이터의 크기에 따라서 함수의 수행 시간이 비례해서 커지는 경우
+
+## O(N^2)
+
+```csharp
+public void printArrayMultiple(int[] dataArray){
+	for(int i = 0; i < dataArray.Length; i++){
+		for(int j = 0; j < dataArray.Length; j++){
+			System.Console.println($"Data:{i * j}");
+		}
+	}
+}
+```
+
+입력으로 받은 데이터 한 개당 입력으로 받은 데이터 전체를 순회해서 보아야 하는 경우
 
 # 공간 복잡도
 
@@ -103,6 +141,10 @@ a = [1, 2, 3, 4]
 
 # 복잡도 계산의 패턴
 
+## 복잡도의 종류
+
+![https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Comparison_computational_complexity.svg/1920px-Comparison_computational_complexity.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Comparison_computational_complexity.svg/1920px-Comparison_computational_complexity.svg.png)
+
 ## O(log N)
 
 이진 탐색(Binary Search) 의 경우를 예로 들어 시간 복잡도를 계산 해본다.
@@ -143,3 +185,9 @@ def fibonacci(num):
 또한 호출 스택의 깊이는 N 이고 특정 시간에 사용되는 메모리(공간)의 크기는 $O(N)$이 된다
 
 즉, 공간 복잡도의 경우 $O(N)$이 된다.
+
+---
+
+참고. 게일 라크만 맥도웰. 코딩 인터뷰 완전분석 (이창현 옮김)
+
+참고. "Big O Notation", Wikipedia
