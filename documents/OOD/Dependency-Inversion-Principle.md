@@ -23,11 +23,11 @@
 
 - 직접적인 의존관계에 있는 설계
 
-![NoAbstract](./img/layer_non_abstract.png)
+![NoAbstract](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLWZ8pybChlH9h4mjggw5Ylcc9cSavcKMvw8AXvPavcIMmDLo8MbLqDEpGzF61UV2LI0RmEMGcfS2T0O0)
 
 - 역전된 의존관계를 가진 설계
 
-![Abstact](./img/layer_abstract.png)
+![Abstact](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLWZ8pybChlH9h4mjggw5Ylcc9cSavcKMvw8AXvPavcIMmDLoPUQLf1Qb9IQdGWq9JYqgoqnEzOG98nGWJCHGmuNa00LTErn6mGs0AYmjqAqXMh4T7ljXda8OYq-rGsfU2Z3i0000)
 
 # 추상화 의존
 
@@ -45,21 +45,21 @@
 
 추상화 하지 않은 코드
 
-![ButtonLamp어설픈추상화](./img/buttonAndLamp_NonAbstract.png)
+![ButtonLamp어설픈추상화](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLd0gBId9pwlcKb3GLWZ8pydHqEIgXKhv9EOMG2H2Ielo_FE0Kd1EMXfO8HT4kuAk7LWr5vT3QbuAq700)
 
 추상화 된 코드
 
-![ButtonLamp추상화](./img/buttonAndLamp_Abstract.png)
+![ButtonLamp추상화](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLd0gBId9pwlcKb3GLWZ8pydHqEIgvShCAqajIajCJeLA1wSMbQKMGHI559Nc-UTfQ48ufKLv_cbfNBLGqtmISmkgWJmkY3u5NJiK4xX0yWgwfGMwDMWI3gbvAK170G00)
 
 ## 용광로 조절기
 
 추상화 하지 않은 코드
 
-![Regulate어설픈추상화](./img/regulate_NonAbstract.png)
+![Regulate어설픈추상화](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLWXAJI_DIIn9XN8z_Pqp4lFoKdD2CbABSlDpKqjIYwgv51Iq5OfI4rCqDBbgqHLwf2R2rQJcfIUcfsfeWZafcSKGFbWN5ymY1TsK_F8yNJkiLc6eGhU7oo4rBmNeUW00)
 
 추상화 된 코드
 
-![Regulate추상화](./img/regulate_Abstract.png)
+![Regulate추상화](http://www.plantuml.com/plantuml/png/ROzB2i8m48RtESKiMoHNa88RNGdY1ORcjoqaKya35zgx-sYKMDq4_lmFlcb2P1-Jiwgr708Tq2NB4LdkzfkUHM2FFRmR7IByqjg2dx-3FDuJjw0YUrL4A_9WKzLgAZ9pQROX7NUewfSmG_ZeIQat3sapNaIlo_5VCwFyeoQTplhstL-Sa2Dvf86OvEmT)
 
 
 # 동적 / 정적 다형성
