@@ -164,11 +164,69 @@ matrix[i][j] 에서 i 번째 노드에서 j 번째 노드로 간선이 있다면
 
 ## 그래프 탐색
 
+![https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/4-tournament.svg/250px-4-tournament.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/4-tournament.svg/250px-4-tournament.svg.png)
+
 그래프를 탐색하는 일반적인 두 가지 방법으로는 깊이 우선 탐색(depth-first search)과 너비 우선 탐색(breadth-first search)가 있다. 
+
+### 깊이 우선 탐색(Depth First Search)
 
 깊이 우선 탐색(DFS)는 루트 노드에서 시작하여 다른 분기(branch)로 넘어가기 전에 해당 분기(branch)를 먼저 완벽하게 탐색하는 방법이다. 말 그래도 넓게 알기 보다 깊게 아는 것 먼저 한다는 뜻이다
 
+위 예시로 나온 그래프를 깊이 우선 탐색을 한다고 생각하면 1번 노드를 시작 노드로 할 때 다음과 같은 순서로 Node를 탐색할 것이다.
+
+Node 1 → Node 2 → Node 4 → Node 3
+
+깊이 우선 탐색은 주로 그래프의 모든 노드를 탐색하고자 할 때 선호되는 사용법 이다. 너비 우선 탐색이 모든 노드를 탐색하지 못 하는 것은 아지지만 간단한 구현과 직관적인 방법이기 때문에 너비 우선 탐색 보다 선호된다. 
+
+```csharp
+void Search(Node root){
+	if (root == null) return;
+	visit(root);
+	root.visited = true;
+	foreach (var node in root.children){
+		if (node.visited == false){
+			Search(node);
+		}
+	}
+}	
+```
+
+DFS 의 구현에서 가장 중요한 점은 어떤 노드를 방문했었는지에 대한 여부를 확인하는 것(node.visited=true) 이다. 노드의 방문 여부를 체크하지 않으면 무한 루프에 빠질 수 있기 때문이다. 
+
+### 너비 우선 탐색(Breadth First Search)
+
 너비 우선 탐색(BFS)는 루트 노드에서 시작하여 인접한 노드를 먼저 탐색하는 방법을 이야기 한다. 말 그대로 깊게 알기 전에 넓게 아는 것이 목적이다.
+
+너비 우선 탐색은 주로 최단 경로, 혹은 임의의 경로를 찾고자 할 때 사용된다. 예를 들어 지구상의 모든 친구관계를 그래프로 표현한 뒤에 철수와 영희 사이에 존재하는 경로를 찾는 경우를 생각해 본다면 깊이 우선 탐색보다 너비 우선 탐색이 왜 더 선호되는지 알 수 있다. 만약 이 문제에서 깊이 우선 탐색을 사용한다면 지구상의 모든 친구관계를 탐색해야 할 수도 있다.
+
+```csharp
+void Search(Node root){
+	Queue queue = new Queue();
+	root.marked = true;
+	queue.enqueue(root);
+	
+	while(!queue.IsEmpty()){
+		Node r = queue.dequeue();
+		visit(r);
+		foreach(var node in r.children()){
+			if (node.marked == false){
+				node.marked = true;
+				queue.enqueue(node);
+			}
+		}
+	}
+}
+```
+
+BFS는 재귀함수를 사용하지 않고 Queue를 이용하여 구현한다.
+
+### 양방향 탐색(Bidirectional Search)
+
+출발지와 도착지 사이의 최단 경로를 찾기 위해 사용되는 알고리즘이다. 기본적으로 출발지와 도착지를 중심으로 하여 너비 우선 탐색을 각각 수행하고 탐색 지점이 겹치는 경로를 찾는 방식이다.
+
+양방향 탐색이 왜 더 빠른 탐색이라고 하는지 다음과 같은 예시를 보아서 알 수 있다.
+
+모든 노드가 적어도 k개의 인접한 노드를 가지고 있다고 할 때 노드 s에서 노드 t까지의 최단 거리가 d 이다. 이 때 너비 우선 탐색을 사용할 경우 각 노드마다 k 번씩 탐색을 최단거리 d 만큼 수행해야 한다. 즉 O(K^d) 만큼의 시간이 걸린다. 양방향 탐색을 사용할 경우 각 노드마다 k 번씩 탐색을 d/2 만큼 수행할 것이다. 즉 O(K^(d/2)) 만큼의 시간이 걸린다.
 
 ---
 
