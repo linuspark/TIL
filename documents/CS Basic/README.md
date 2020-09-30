@@ -14,15 +14,13 @@
 
 [배열(Array)과 연결리스트(Linked list)](https://github.com/linuspark/TIL/blob/master/documents/CS%20Basic/DataStructure/ArrayAndLinkedList.md)
 
-트리, 트라이, 그래프
-
 [스택(Stack) & 큐(Queue)](https://github.com/linuspark/TIL/blob/master/documents/CS%20Basic/DataStructure/StackAndQueue.md)
 
-힙 (Heap)
+[트리(Tree) & 그래프(Graph)](https://github.com/linuspark/TIL/blob/master/documents/CS%20Basic/DataStructure/TreeAndGraph.md)
 
-Vector / ArrayList
+[힙 (Heap)](https://github.com/linuspark/TIL/blob/master/documents/CS%20Basic/DataStructure/Heap.md)
 
-해시테이블
+[해시테이블(Hash Table)](https://github.com/linuspark/TIL/blob/master/documents/CS%20Basic/DataStructure/HashTable.md)
 
 # 알고리즘
 
