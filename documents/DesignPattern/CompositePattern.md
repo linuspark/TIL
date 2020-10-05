@@ -10,19 +10,19 @@
 
 아래는 커맨드패턴을 이용한 예제이다. 
 
-UML
+[http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLWXEpIlEBu9odFDpSnFpKXIuk2322hfsC34kXzIy5A0s0000](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLWXEpIlEBu9odFDpSnFpKXIuk2322hfsC34kXzIy5A0s0000)
 
 Sensor 객체는 특정 이벤트를 감지하면 Command 객체의 do() 함수를 실행한다. Sensor는 어떤 Command 객체가 오는지에 상관 없이 Command 객체가 가진 인터페이스 do()를 실행하는 것이다. 이렇게 구성된 시스템에서 Sensor 객체가 이벤트를 감지하였을 때 특정 N개의 Command 객체의 do()를 실행해야 하는 상황을 가정한다.
 
 생각할 수 있는 간단한 방법으로는 Sensor가 Command 객체의 리스트를 가지고 있고 이벤트가 발생하였을 때 Command 객체의 리스트를 순회하면서 do() 함수를 실행하는 것을 생각 할 수 있다.
 
-UML
+[http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuGfEpIlEBrBGjLDGybDISCxFpKtCI-5oICrB0Se20000](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuGfEpIlEBrBGjLDGybDISCxFpKtCI-5oICrB0Se20000)
 
 이런 상황에서 컴포지트 패턴을 사용하게 되면 깔끔하고 간단하게 해결할 수 있다.
 
-UML 
+[http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLWXEpIlEBu9odFDpSnFpKX2yWlpYp99Kc30NHB62hXrS9PHMiAdHBItGnTI2Bg00L0RKhkId13V28JKl1UWU0000](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLWXEpIlEBu9odFDpSnFpKX2yWlpYp99Kc30NHB62hXrS9PHMiAdHBItGnTI2Bg00L0RKhkId13V28JKl1UWU0000)
 
-Sensor 나 Command 객체를 수정하지 않고 Composite Command 라는 새로운 클래스를 생성함으로써 문제를 해결하였다. 이런 방식은 OCP를 만족시킨다. 
+Sensor 나 Command 객체를 수정하지 않고 Composite Command 라는 새로운 클래스를 생성함으로써 문제를 해결하였다. 이런 방식은 OCP를 만족시킨다.
 
 # 결론
 
