@@ -13,7 +13,7 @@ ps. 래퍼(wrapper)가 특정 인터페이스를 준수해야 하며 폴리모�
 
 # 예시
 
-[http://www.plantuml.com/plantuml/svg/RT1DJaCX50NWEQjWM6Fg2XfIAphIfFfMS0CdByzImCkbcfZktVvKGgpJxoOSpbaM8PQw3Se5AaNVvnmcHpAbU94r9r-TM1AwY5rzAwrlTP74c7NtcnEFaCvcPLFFxX4Wk3hjbShaDZH2lzEExif7q8l5KmeURCmnwPpwa6A4EtwiqI0as29A4ylJ3ln2aKPmqpUK6cI0D5apCZ7yzGl3w_FZbqC-1UrLjuUUcqFrlzBFOrV_YK-VSMv-kwabeZ_i_GC0](http://www.plantuml.com/plantuml/svg/RT1DJaCX50NWEQjWM6Fg2XfIAphIfFfMS0CdByzImCkbcfZktVvKGgpJxoOSpbaM8PQw3Se5AaNVvnmcHpAbU94r9r-TM1AwY5rzAwrlTP74c7NtcnEFaCvcPLFFxX4Wk3hjbShaDZH2lzEExif7q8l5KmeURCmnwPpwa6A4EtwiqI0as29A4ylJ3ln2aKPmqpUK6cI0D5apCZ7yzGl3w_FZbqC-1UrLjuUUcqFrlzBFOrV_YK-VSMv-kwabeZ_i_GC0)
+![http://www.plantuml.com/plantuml/svg/RT1DJaCX50NWEQjWM6Fg2XfIAphIfFfMS0CdByzImCkbcfZktVvKGgpJxoOSpbaM8PQw3Se5AaNVvnmcHpAbU94r9r-TM1AwY5rzAwrlTP74c7NtcnEFaCvcPLFFxX4Wk3hjbShaDZH2lzEExif7q8l5KmeURCmnwPpwa6A4EtwiqI0as29A4ylJ3ln2aKPmqpUK6cI0D5apCZ7yzGl3w_FZbqC-1UrLjuUUcqFrlzBFOrV_YK-VSMv-kwabeZ_i_GC0](http://www.plantuml.com/plantuml/svg/RT1DJaCX50NWEQjWM6Fg2XfIAphIfFfMS0CdByzImCkbcfZktVvKGgpJxoOSpbaM8PQw3Se5AaNVvnmcHpAbU94r9r-TM1AwY5rzAwrlTP74c7NtcnEFaCvcPLFFxX4Wk3hjbShaDZH2lzEExif7q8l5KmeURCmnwPpwa6A4EtwiqI0as29A4ylJ3ln2aKPmqpUK6cI0D5apCZ7yzGl3w_FZbqC-1UrLjuUUcqFrlzBFOrV_YK-VSMv-kwabeZ_i_GC0)
 
 퍼사드 패턴을 잘 보여주는 간략한 예제 UML 이다.
 

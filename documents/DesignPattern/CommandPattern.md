@@ -1,4 +1,4 @@
-[http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkLoICrB0Qe10000](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkLoICrB0Qe10000)
+![http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkLoICrB0Qe10000](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkLoICrB0Qe10000)
 
 커맨드 패턴은 단순하다. 인터페이스 하나. 메소드도 없어 보이는 이런 단순한 인터페이스가 어떻게 패턴이 될 수 있는지 의문스러울 정도로 단순한 커맨드 패턴은 이 것이 무슨 효용이 있을지 의문스러울 정도 이다.
 
@@ -8,13 +8,13 @@
 
 다음의 예시는 하드웨어의 장치를 제어하는데 사용된 커맨트 패턴이다.
 
-[http://www.plantuml.com/plantuml/png/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkNYIiv9B2vM24hDIQpqpuFAGmLzyqloY-22A2hJqh0fHOXoeHgee5jQe5jZfm2JXXc2GnfgCJvPt9eTKlDIWBu60000](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkNYIiv9B2vM24hDIQpqpuFAGmLzyqloY-22A2hJqh0fHOXoeHgee5jQe5jZfm2JXXc2GnfgCJvPt9eTKlDIWBu60000)
+![http://www.plantuml.com/plantuml/png/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkNYIiv9B2vM24hDIQpqpuFAGmLzyqloY-22A2hJqh0fHOXoeHgee5jQe5jZfm2JXXc2GnfgCJvPt9eTKlDIWBu60000](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIq4x9rz3agkNYIiv9B2vM24hDIQpqpuFAGmLzyqloY-22A2hJqh0fHOXoeHgee5jQe5jZfm2JXXc2GnfgCJvPt9eTKlDIWBu60000)
 
 위 구조는 너무나도 단순하다. Relay On Command에서 Do를 실행하면 Relay가 켜진다. Motor Off Command에서 Do를 실행하면 Motor는 꺼진다. 즉 Command 인터페이스를 들고 있는 모듈은 어떤 모듈이 들어왔는지에 상관없이 Do  명령어를 이용하여 다양한 기능을 수행할 수 있는 것이다.
 
 # 되돌리기
 
-[http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIKD1EoTVG1D6bUM1MBPT3QbuAK3a0](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIKD1EoTVG1D6bUM1MBPT3QbuAK3a0)
+![http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIKD1EoTVG1D6bUM1MBPT3QbuAK3a0](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmpi_DJSnBgUPIKD1EoTVG1D6bUM1MBPT3QbuAK3a0)
 
 Command 패턴과 스택을 이용해서 Undo 기능을 쉽게 구현할 수 있다.
 
@@ -22,7 +22,7 @@ Command 의 파생 클래스에서 do 의 액션을 구체적으로 기억한 �
 
 되돌리기의 예시로는 그림판 어플리케이션을 예시로 들 수 있다. 그림판 에서는 여러가지 도형과 직선, 곡선 등 다양한 기능을 포함하고 있다. 각각의 기능들이 커맨드 패턴에 따라 구현되어 있다고 생각하면 아래와 같은 클래스 다이어 그램을 상상할 수 있다.
 
-[http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmAKeiJqpAIQtcKb3Gpam1aIb08GrD4AieDJU_B1N8hkNYIiv9B2vMSCuiIiv9XMc22WQb9fSavgLZYFjavg4BXQHMbC25k51DKz0jBT2jiLE0oqFDnQC2Q0DkIP1TE2KTKlDIW2410000](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmAKeiJqpAIQtcKb3Gpam1aIb08GrD4AieDJU_B1N8hkNYIiv9B2vMSCuiIiv9XMc22WQb9fSavgLZYFjavg4BXQHMbC25k51DKz0jBT2jiLE0oqFDnQC2Q0DkIP1TE2KTKlDIW2410000)
+![http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmAKeiJqpAIQtcKb3Gpam1aIb08GrD4AieDJU_B1N8hkNYIiv9B2vMSCuiIiv9XMc22WQb9fSavgLZYFjavg4BXQHMbC25k51DKz0jBT2jiLE0oqFDnQC2Q0DkIP1TE2KTKlDIW2410000](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuShCAqajIajCJbLmAKeiJqpAIQtcKb3Gpam1aIb08GrD4AieDJU_B1N8hkNYIiv9B2vMSCuiIiv9XMc22WQb9fSavgLZYFjavg4BXQHMbC25k51DKz0jBT2jiLE0oqFDnQC2Q0DkIP1TE2KTKlDIW2410000)
 
 그림판에 원을 그리는 경우 CircleDrawable 인스턴스를 하나 생성하고, draw() 함수를 이용하여 원을 그린다. draw함수는 마우스 이벤트에 따라 원을 그리고 그려진 원 객체의 ID를 자신의 내부 변수 id필드에 저장한 뒤 반환한다. 원 그리기가 완료되면 CircleDrawable 인스턴스를 완료된 명령 스택에 넣는다.
 

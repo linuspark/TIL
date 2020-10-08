@@ -20,7 +20,7 @@ if (e != null && e.isTimeToPay(today))
 
 널 오브젝트 패턴을 이용하여 위 문제를 해결하면 다음과 같은 방식으로 해결할 수 있다.
 
-[http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLd1nuihCAqajIajCJbLmpIt8oQzCJONA-PNcvA09mRYUG3epDpMl9B4aCp-FYyl5IK7N3g4VMQU2Rcc1RWsI97Opq9L1ZKGnoKh1niQvA3Mn9DNE3YgFtJ1KbGwfUIb07mC0](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLd1nuihCAqajIajCJbLmpIt8oQzCJONA-PNcvA09mRYUG3epDpMl9B4aCp-FYyl5IK7N3g4VMQU2Rcc1RWsI97Opq9L1ZKGnoKh1niQvA3Mn9DNE3YgFtJ1KbGwfUIb07mC0)
+![http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLd1nuihCAqajIajCJbLmpIt8oQzCJONA-PNcvA09mRYUG3epDpMl9B4aCp-FYyl5IK7N3g4VMQU2Rcc1RWsI97Opq9L1ZKGnoKh1niQvA3Mn9DNE3YgFtJ1KbGwfUIb07mC0](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuKhEIImkLd1nuihCAqajIajCJbLmpIt8oQzCJONA-PNcvA09mRYUG3epDpMl9B4aCp-FYyl5IK7N3g4VMQU2Rcc1RWsI97Opq9L1ZKGnoKh1niQvA3Mn9DNE3YgFtJ1KbGwfUIb07mC0)
 
 NullEmployee 객체는 모든 메소드가 "아무 일"도 하지 않는다. 여기서 "아무 일" 이란 우리가 Null 객체에게 원하는 행동이 될 수 있다. DB의 getEmployee 매소드는 Employee를 찾지 못 하였을 때 NullEmployee를 반환한다.
 
