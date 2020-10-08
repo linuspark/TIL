@@ -4,7 +4,7 @@
 
 객체(Subject)의 상태의 변화를 관찰하는 관찰자(Observer)들의 목록을 객체에 등록해 놓고 객체의 상태에 변화가 있을 때 마다 객체가 직접 메서드를 통해 관찰자들에게 알려주도록 하는 디자인 패턴이다. 주로 이벤트 핸들링 시스템을 구현하는데 사용되며 구독/발행 모델로도 알려져 있다.
 
-[OberserPattern.png](http://www.plantuml.com/plantuml/svg/POvB2i9038RtEKMe6nzCyGIbu5v1Jp2TfbAPFaWo1T7UNR4FiDs5B___9QcePGsLXx9Mui8wmaicn1tn2n0FeSsj4lHWCr6sJj5vAuAta3t8wIzpfNifIZmLjxk1Lar7VsnpRhGidXEJB-nXy9sQsZ7fd5_WyHp0EA19ecCSxoES2qi3cj2QTx8Ep8fXFwdNVK-5ccJrGqfr7Yh_0G00)
+![OberserPattern.png](http://www.plantuml.com/plantuml/svg/POvB2i9038RtEKMe6nzCyGIbu5v1Jp2TfbAPFaWo1T7UNR4FiDs5B___9QcePGsLXx9Mui8wmaicn1tn2n0FeSsj4lHWCr6sJj5vAuAta3t8wIzpfNifIZmLjxk1Lar7VsnpRhGidXEJB-nXy9sQsZ7fd5_WyHp0EA19ecCSxoES2qi3cj2QTx8Ep8fXFwdNVK-5ccJrGqfr7Yh_0G00)
 
 옵저버 패턴은 한번 이해하면 여기저기서 사용되고 있는 것을 볼 수 있는 유명하고 잘 쓰이는 패턴 중 하나이다. 객체들이 명시적으로 관찰 대상을 호출하도록 작성하는 대신, 서브젝트에 옵저버로 객체를 등록하기만 하면 이벤트가 발생 하였을 때 객체들에게 알려준다. 이런 **간접 참조**는 의존관계를 관리하기 쉽게 만들어 준다. 
 
