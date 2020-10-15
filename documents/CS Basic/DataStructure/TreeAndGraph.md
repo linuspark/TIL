@@ -29,7 +29,11 @@ class Node {
 
 ## 이진 트리 (Binary Tree)
 
+![https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/600px-Binary_tree.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/600px-Binary_tree.svg.png)
+
 각 노드가 최대 두 개의 자식 노드를 가지는 트리. 각각 왼쪽 자식, 오른쪽 자식 이라고 한다. 모든 트리가 이진트리는 아니다.
+
+보통 CS에서는 이진 탐색 트리와 이진 힙을 구현하는데 주로 사용되며 효율적인 탐색과 정렬을 위해 사용된다.
 
 ## 이진 탐색 트리(Binary Search Tree)
 
@@ -38,6 +42,8 @@ class Node {
 - '모든 왼쪽 자식들 ≤ N(현재 노드의 값) ≤ 모든 오른쪽 자식들'
 
 이 때 "모든 왼쪽/오른쪽 자식들" 이라는 것은 바로 아래 자식 뿐만 아니라 내 밑에 있는 모든 자식 노드 들에 대하여 이 부등호가 성립해야 한다. (내 왼쪽 손자 노드가 나 보다 큰 값이면 안된다)
+
+이진 탐색 트리는 탐색과 저장에 보통 O(logN)의 시간이 소요된다. 하지만 균형이 많이 깨진 경우에는 O(N) 시간이 소요될 수 있다.
 
 ## 균형 트리
 
@@ -227,6 +233,30 @@ BFS는 재귀함수를 사용하지 않고 Queue를 이용하여 구현한다.
 양방향 탐색이 왜 더 빠른 탐색이라고 하는지 다음과 같은 예시를 보아서 알 수 있다.
 
 모든 노드가 적어도 k개의 인접한 노드를 가지고 있다고 할 때 노드 s에서 노드 t까지의 최단 거리가 d 이다. 이 때 너비 우선 탐색을 사용할 경우 각 노드마다 k 번씩 탐색을 최단거리 d 만큼 수행해야 한다. 즉 O(K^d) 만큼의 시간이 걸린다. 양방향 탐색을 사용할 경우 각 노드마다 k 번씩 탐색을 d/2 만큼 수행할 것이다. 즉 O(K^(d/2)) 만큼의 시간이 걸린다.
+
+# 문제
+
+## 노드 사이의 경로
+
+방향 그래프가 주어졌을 때 두 노드 사이에 경로가 존재하는지 확인하는 알고리즘을 작성하여라
+
+```csharp
+bool IsExistThePathBetween(Node node1, Node node2){
+	...
+	return isExist;
+}
+```
+
+## 깊이의 리스트
+
+이진 트리가 주어졌을 때 같은 깊이에 있는 노드를 연결리스트로 연결해 주는 알고리즘을 설계하라. 즉, 트리의 깊이가 D라면 D개의 연결리스트를 만들어야 한다.
+
+```csharp
+List<LinkedList<Node>> createLevelLinkedList(Node root){
+	...
+	return lists;
+}
+```
 
 ---
 
