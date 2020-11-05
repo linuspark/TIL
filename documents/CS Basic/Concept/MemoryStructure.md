@@ -38,6 +38,56 @@ C#이나 JAVA등의 고수준 언어에서는 가비지 컬랙터(Garbage Collec
 
 메모리의 높은 주소부터 시작하여 낮은 주소 방향으로 할당되며 주로 메모리의 마지막 번지에서 시작한다.
 
+# C# 에서 스택과 힙 메모리
+
+C#에서 데이터가 스택 메모리나 힙 메모리에 저장되는 기준은 값 형식 데이터 인지, 참조 형식 데이터 인지에 따라 구분된다. 
+
+- 값 형식 (Value Type) : 값을 변수에 직접 저장한다.
+    - C# 에서는 정수, 부동소수점 숫자, 문자, bool, 구조체(struct), 열거형(enum), 값 튜플 등이 속한다.
+- 참조 형식 (Reference Type) : 변수가 저장된 주소값(메모리 위치)을 저장하는 방식
+    - C# 에서는 클래스, 인터페이스 등이 속한다.
+
+값 형식을 변수에 저장하면 변수의 값은 스택 메모리에 저장된다.
+
+```csharp
+public void func(){
+	int a = 10;
+	float b = 0.1;
+	a = 30;
+	b = 4.5;
+}
+```
+
+위와 같은 함수의 경우 함수가 시작되면서 해당 함수를 위한 공간이 스택 메모리에 할당이 되고 a 변수 위치에 10 이라는 값이, b 라는 위치에 0.1 이라는 값이 할당된다. 이 후 a 와 b 의 값이 변경될 때에는 기존에 저장되었던 스택 메모리 위치에 10 → 30, 0.1 → 4.5 이 되도록 값이 변경된다.
+
+이 후 함수가 종료되어 나올 때 메모리에 할당되어 있던 데이터는 모두 해제된다.
+
+참조 형식의 변수를 저장하는 경우에는 힙 메모리에 저장된다.
+
+```csharp
+public void Main(){
+	var reference = new Reference(10);
+	reference.internal_value = 30;
+
+	var another = reference;
+	another.internal_value = 40;
+}
+```
+
+참조 형식으로 Reference라는 클래스의 인스턴스를 생성하고 초기 값을 10으로 설정하였다. var reference 부분이 실행 될 때 힙 메모리에는 Reference(10) 의 공간을 생성하고 해당 공간에 10을 저장한다. 
+
+Main함수를 위한 스택 공간에는 reference 변수를 위한 공간이 생기고 해당 공간에는 힙 공간에 생성된 Reference(10)이 저장된 위치를 가리키는 값이 저장된다. 이 후 internal_value라는 값을 변경하게 되면 힙 공간에 있는 10이라는 값을 30으로 변경한다.
+
+var another 에서는 동일한 힙 공간을 가리키는 변수를 스택 공간에 하나 더 생성하게 된다. another.internal_value를 변경할 때에도 힙 공간의 값을 변경하기 때문에 reference의 값도 변경되게 된다.
+
+여기서 중요한 점은 스택 메모리에는 힙 메모리의 주소에 대한 정보가 저장된다는 점, 힙 메모리에는 실질적인 값이 저장된다는 점, 새로운 객체에 기존 변수를 할당하거나 함수의 인자로 넘길 때에는 스택 공간에 있는 주소값을 복사해 넘긴다는 점 등이 있다. 
+
+힙 공간에 생성된 변수는 가비지 컬렉터에 의해 자동적으로 할당이 해제된다. 
+
 ---
 
 참고. [http://tcpschool.com/c/c_memory_structure](http://tcpschool.com/c/c_memory_structure)
+
+참고. [https://guslabview.tistory.com/186](https://guslabview.tistory.com/186)
+
+참고. [https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/builtin-types/value-types](https://docs.microsoft.com/ko-kr/dotnet/csharp/language-reference/builtin-types/value-types)
