@@ -28,6 +28,26 @@ Client는 Product 인터페이스를 이용하며 실제로는 ProductDBProxy를
 
 ![http://www.plantuml.com/plantuml/svg/NKyx3i8m3Drz2e-jAYx0WAgIXQrN28c1Y3IfN0ULszE8PcWc-ttiP_UBQ9OqUNWvI_Y8KUvn1MqaCbwzeo00_ugd2uuSRJAYXgrPlzXrPtoIZEmCDIqSrUnNGxOm2JlwqAutopkrO9YqKDbucsOFQYWPXM6InA5GLK1bhexPH-SCZw2dOBUFVm00](http://www.plantuml.com/plantuml/svg/NKyx3i8m3Drz2e-jAYx0WAgIXQrN28c1Y3IfN0ULszE8PcWc-ttiP_UBQ9OqUNWvI_Y8KUvn1MqaCbwzeo00_ugd2uuSRJAYXgrPlzXrPtoIZEmCDIqSrUnNGxOm2JlwqAutopkrO9YqKDbucsOFQYWPXM6InA5GLK1bhexPH-SCZw2dOBUFVm00)
 
+# 서드파티 API
+
+보통의 경우 서드파티 API 등을 사용할 때 프록시의 구현을 생각하게 될 수 있다. 아니 서드파티 API 와 내가 작성하는 애플리케이션 간의 분리를 위해 프록시를 생각해 볼 수 있다.
+
+보통 애플리케이션에서 서드파티 API를 사용하는 경우 다음과 같이 사용한다.
+
+![http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuIhEpimhI2nAp5L8piyjoCzBpIi9BgdCILKeIaqkISnBpqdbuefsB2Z8oKnEBCdCpujLqBLJY7OCy8pbSaZDIm4Q0G00](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuIhEpimhI2nAp5L8piyjoCzBpIi9BgdCILKeIaqkISnBpqdbuefsB2Z8oKnEBCdCpujLqBLJY7OCy8pbSaZDIm4Q0G00)
+
+이렇게 사용할 경우 애플리케이션은 서드파티 API에 종속되게 된다. 간단하게 사용하는 API 면 상관이 없지만 프로그램이 복잡해 질 수록 API와 나의 애플리케이션은 결합이 크게 증가한다. 이런 문제를 해결하기 위해 중간에 레이어 를 만들고 애플리케이션은 레이어를, 레이어는 API 를 이용하게 만들어 API와의 종속성을 분리할 수 있다.
+
+![http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuIhEpimhI2nAp5L8piyjoCzBpIi9BgdCILKeIaqkISnBpqdbuefsB2Z8oKnEBCdCpujLqBLJYFP9h4mjYkM2q10Xnm3FM2w7rBmKeAa0](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuIhEpimhI2nAp5L8piyjoCzBpIi9BgdCILKeIaqkISnBpqdbuefsB2Z8oKnEBCdCpujLqBLJYFP9h4mjYkM2q10Xnm3FM2w7rBmKeAa0)
+
+레이어를 이용하여 직접적인 종속성은 분리하였지만 애플리케이션에서 API 로 전이 종속성이 존재한다. 이런 간접적인 종속성도 문제가 될 수 있다. 이 문제를 해결하기 위해서는 레이어와 애플리케이션과의 종속성을 뒤집을 필요가 있고 그렇게 되면 다음과 같이 구현이 된다.
+
+![http://www.plantuml.com/plantuml/svg/BSKn2iCm3030NQ_G1_A3KfAnqA7GqNWGhYYcaYmKUV3lk-IMsy-aoAa2vw-RKv1Y6-h3sFATInY3Mv9zXG7AuIwzKVPX5MyRbYSjZWhNkDsn7Az7XPtjCrN-](http://www.plantuml.com/plantuml/svg/BSKn2iCm3030NQ_G1_A3KfAnqA7GqNWGhYYcaYmKUV3lk-IMsy-aoAa2vw-RKv1Y6-h3sFATInY3Mv9zXG7AuIwzKVPX5MyRbYSjZWhNkDsn7Az7XPtjCrN-)
+
+이렇게 되면 애플리케이션은 API를 알지 못 하고, API는 애플리케이션을 알지 못 한다. 레이어가 중간에서 둘 모두를 알고있어야 하는 것이다. 이렇게 종속성을 재배치 하므로써 프록시 패턴이 이루고자 하는 목적을 이룰 수 있게 된다. 애플리케이션과 API의 관계정보는 레이어에 집중하게 된다.
+
+이 말은 레이어에 악몽이 집중된다는 것 이다. API 가 변경되거나 애플리케이션이 변경될 때 마다 레이어가 영향을 받게 된다. 하지만 악몽은 어디에 위치하는지 알고있는 편이 애플리케이션 전체에 악몽이 퍼지게 되는 것 보다 낫다.
+
 ---
 
 참고. 로버트C마틴. 클린 소프트웨어 애자일 원칙과 패턴 그리고 실천 방법 (이용원, 김정민, 정지호 옮김) 
