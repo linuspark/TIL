@@ -1,5 +1,27 @@
 # 비트연산
 
+## 논리 연산
+
+- AND : &
+- OR : |
+- XOR : ^
+- 비트보수 : ~
+
+## 시프트 연산
+
+### 논리 시프트
+
+모든 비트를 이동시킨다. 단순히 주어진 수 만큼의 비트를 이동시키고 비어 있는 비트 위치를 0 으로 채운다.
+
+### 산술 시프트
+
+부호 비트를 고려하여 비트를 이동시킨다. 
+
+비트의 이동이 양수일 경우에는 논리 시프트와 다를 바 없다.
+
+음수일 경우에는 부호 비트를 고려하여 비어있는 비트 위치를 1로 채운다.
+
+![https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Rotate_right_arithmetically.svg/600px-Rotate_right_arithmetically.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Rotate_right_arithmetically.svg/600px-Rotate_right_arithmetically.svg.png)
 # 2의 보수와 음수
 
 컴퓨터에서는 정수를 저장할 때 2의 [보수](https://ko.wikipedia.org/wiki/%EB%B3%B4%EC%88%98_(%EC%88%98%ED%95%99)) 형태로 저장을 한다. 
