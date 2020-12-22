@@ -1,11 +1,23 @@
+# 최적화 문제
+
+특정 문제를 해결하는 여러가지 방법 중에 최적의 해법(비용의 최소 등)을 찾는 문제 (the problem of finding the best solution from all feasible solutions)
+
+## Local Optimum
+
+최적화 문제를 해결할 때에는 local optimum 에 빠지지 않고 global optimum을 찾도록 하는 것이 중요하다.
+
+![https://upload.wikimedia.org/wikipedia/commons/a/a1/Polynomialdeg4.png](https://upload.wikimedia.org/wikipedia/commons/a/a1/Polynomialdeg4.png)
+
 # 탐욕 알고리즘 (Greedy Algorithm)
 
 > 탐욕 알고리즘은 최적해를 구하는 데에 사용되는 근사적인 방법으로, 여러 경우 중 하나를 결정해야 할 때마다 **그 순간에 최적이라고 생각되는 것을 선택**해 나가는 방식으로 진행하여 최종적인 해답에 도달한다. 순간마다 하는 선택은 그 순간에 대해 지역적으로는 최적이지만, 그 선택들을 계속 수집하여 최종적(전역적)인 해답을 만들었다고 해서, 그것이 최적이라는 보장은 없다. 하지만 탐욕알고리즘을 적용할 수 있는 문제들은 지역적으로 최적이면서 전역적으로 최적인 문제들이다   - wikipedia
 
 즉, 미래를 생각하지 않고 현재 가장 좋아보이는 선택을 하는 알고리즘.
 
-- 장점: 빠른 계산 속도. 전체 문제를 보는 것이 아니라 부분 문제를 보고 결정하기 때문
+- 장점: 빠른 계산 속도. 전체 문제를 보는 것이 아니라 문제의 부분만을 보고 결정하기 때문
 - 단점: 알고리즘의 결과가 최적해(global optima)라는 것을 보장할 수 없다.
+
+![https://miro.medium.com/max/1400/1*h8qoUKRVILm9vESQ6ZPj8A.png](https://miro.medium.com/max/1400/1*h8qoUKRVILm9vESQ6ZPj8A.png)
 
 # 언제 사용하는가
 
@@ -29,6 +41,11 @@
 
 결론부터 말하면 쉽지 않은 알고리즘이다. 알고리즘 문제나 대회 등에서 탐욕 알고리즘을 가장 마지막에 고려하는 이유는 이 알고리즘의 결과가 최적해(global optima)라는 것을 증명하기가 어렵기 때문이다. 알고리즘의 결과가 최적임을 증명하는 것을 정당성 증명 이라고 하는데 탐욕 알고리즘의 결과는 항상 최적해를 보장하지 않기 때문에 정당성 증명을 해야한다. 
 
+# 예시
+
+대표적인 탐욕 알고리즘으로 다익스트라 알고리즘(Dijkstra Algorithm) 이 있다.
+
+
 # 문제
 
 ## 동전 교환 문제(Coin Exchange Problem)
@@ -44,3 +61,7 @@
 참고. "탐욕 알고리즘", wikipedia
 
 참고. 박상길. "파이썬 알고리즘 인터뷰"
+
+참고. "최적화 문제", wikipedia
+
+참고. "local optimum", wikipedia
